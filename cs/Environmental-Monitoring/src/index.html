@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Environmental Monitoring using Temperature and Humidity Sensors | CDIS (25CS2206E)</title>
+  <link rel="stylesheet" href="./styles/main.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <div>
+        <h1 class="site-header__title">Environmental Monitoring using Temperature and Humidity Sensors</h1>
+        <p class="site-header__subtitle">Cloud Infrastructure and Services (CDIS &bull; 25CS2206E) &mdash; Modular Multi-Tier Reference Application</p>
+      </div>
+      <div class="site-header__meta">
+        <span id="header-mode-pill" class="header-pill">Mode: Initialising...</span>
+        <span id="header-runtime-pill" class="header-pill">Tier Connection: Checking...</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Explicit Simulation Disclosure Banner -->
+    <div id="simulation-disclosure" class="disclosure-banner" role="status">
+      <strong>Simulated Demonstration Mode Notice:</strong>
+      Hardware sensor model, microcontroller platform, database engine, and cloud provider have not yet been finalised by the team. All generated samples are explicitly tagged as <code>SIMULATED</code> rather than physical sensor measurements.
+    </div>
+
+    <noscript>
+      <div class="disclosure-banner">
+        JavaScript is required to load modular dashboard components. Run <code>npm start</code> and open <code>http://127.0.0.1:3000</code> in a modern browser.
+      </div>
+    </noscript>
+
+    <div id="status-feedback" class="status-feedback" role="alert" aria-live="polite"></div>
+
+    <!-- Summary KPI Metrics -->
+    <section class="section" aria-labelledby="kpi-heading">
+      <div class="section-header">
+        <h2 id="kpi-heading" class="section-title">Current Environmental Telemetry Summary</h2>
+        <p id="last-updated-label" class="section-subtitle">Loading buffered readings...</p>
+      </div>
+      <div id="metrics-grid" class="metrics-grid"></div>
+    </section>
+
+    <!-- Time-Series Visualisation -->
+    <section class="section section-card" aria-labelledby="trends-heading">
+      <div class="section-header">
+        <h2 id="trends-heading" class="section-title">Temperature &amp; Relative Humidity Trends</h2>
+        <p class="section-subtitle">Recent chronological readings plotted against configurable normal operating bands</p>
+      </div>
+      <div id="charts-container"></div>
+    </section>
+
+    <!-- Demonstration & Configuration Controls -->
+    <section class="section controls-grid" aria-label="Simulation, Ingestion, and Threshold Controls">
+      <!-- Simulation & Test Payload Card -->
+      <div class="section-card">
+        <div class="section-header">
+          <h2 class="section-title">Demonstration &amp; Ingestion Verification</h2>
+          <p class="section-subtitle">Vendor-neutral testing controls</p>
+        </div>
+
+        <p class="section-subtitle">Generate clearly labelled synthetic samples for UI &amp; threshold verification:</p>
+        <div class="button-row">
+          <button type="button" class="btn btn--primary" data-sim-scenario="normal">+ Simulated Normal</button>
+          <button type="button" class="btn" data-sim-scenario="high_temp">+ Simulated High Temp</button>
+          <button type="button" class="btn" data-sim-scenario="high_humidity">+ Simulated High Humidity</button>
+          <button type="button" class="btn" id="btn-toggle-autosim">Start 5s Demo Auto-Sample</button>
+          <button type="button" class="btn btn--danger" id="btn-clear-buffer">Clear Buffer</button>
+        </div>
+
+        <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 1rem 0;" />
+
+        <form id="manual-ingest-form">
+          <p class="section-subtitle" style="margin-bottom: 0.6rem;">Submit a vendor-neutral payload to <code>POST /api/readings</code>:</p>
+          <div class="form-grid">
+            <label class="form-field">
+              <span>Node Identifier</span>
+              <input type="text" name="sensorId" value="TEST-NODE-01" maxlength="64" required />
+            </label>
+            <label class="form-field">
+              <span>Monitoring Zone</span>
+              <input type="text" name="zone" value="Laboratory Zone A" maxlength="64" required />
+            </label>
+            <label class="form-field">
+              <span>Temperature (°C)</span>
+              <input type="number" step="0.1" name="temperatureC" value="24.5" required />
+            </label>
+            <label class="form-field">
+              <span>Humidity (% RH)</span>
+              <input type="number" step="0.1" name="humidityPct" value="50.0" required />
+            </label>
+            <label class="form-field">
+              <span>Payload Classification</span>
+              <select name="originType">
+                <option value="simulated" selected>Simulated / Test Data</option>
+                <option value="external">External Sensor Payload</option>
+              </select>
+            </label>
+          </div>
+          <div class="button-row">
+            <button type="submit" class="btn btn--primary">Submit Measurement Payload</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Configurable Thresholds Card -->
+      <div class="section-card">
+        <div class="section-header">
+          <h2 class="section-title">Configurable Advisory Thresholds</h2>
+          <p class="section-subtitle">Runtime limits (re-evaluates buffered readings)</p>
+        </div>
+        <form id="threshold-config-form">
+          <div id="threshold-fields"></div>
+          <div class="button-row" style="margin-top: 1rem;">
+            <button type="submit" class="btn btn--primary">Apply Threshold Configuration</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Timestamped Measurement Log -->
+    <section class="section section-card" aria-labelledby="log-heading">
+      <div class="section-header">
+        <h2 id="log-heading" class="section-title">Environmental Measurement Log</h2>
+        <p class="section-subtitle">Ordered newest-first &bull; Explicit data-origin labelling enforced</p>
+      </div>
+      <div id="readings-table-container"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h4>Academic Project Scope</h4>
+        <p>Course: Cloud Infrastructure and Services (25CS2206E). Scoped to CO1 (Cloud Fundamentals &amp; Multi-Tier Architecture) and CO2 (Compute, Virtualization &amp; Scaling).</p>
+      </div>
+      <div>
+        <h4>Hardware &amp; Cloud Agnosticism</h4>
+        <p>Sensor interface (<code>sensorAdapter.js</code>) and storage repository (<code>storageRepository.js</code>) are decoupled via clean contracts awaiting final hardware and cloud selection.</p>
+      </div>
+      <div>
+        <h4>Execution Tip</h4>
+        <p>Start the local multi-tier server with <code>npm start</code> (<code>node src/server.js</code>) and open <code>http://127.0.0.1:3000</code>.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+{
+  "datasetNotice": "SIMULATED_DEMONSTRATION_ONLY - These records are synthetic software test vectors and NOT physical sensor measurements.",
+  "schemaVersion": "1.0",
+  "samples": [
+    {
+      "sensorId": "SIM-DEMO-NODE-01",
+      "zone": "Simulated Lab Zone (Demo)",
+      "temperatureC": 22.8,
+      "humidityPct": 47.5,
+      "timestamp": "2026-11-25T08:00:00.000Z",
+      "isSimulated": true,
+      "source": "SIMULATED_DEMONSTRATION",
+      "note": "Synthetic baseline reading"
+    },
+    {
+      "sensorId": "SIM-DEMO-NODE-01",
+      "zone": "Simulated Lab Zone (Demo)",
+      "temperatureC": 24.1,
+      "humidityPct": 51.2,
+      "timestamp": "2026-11-25T08:05:00.000Z",
+      "isSimulated": true,
+      "source": "SIMULATED_DEMONSTRATION",
+      "note": "Synthetic normal drift reading"
+    },
+    {
+      "sensorId": "SIM-DEMO-NODE-01",
+      "zone": "Simulated Lab Zone (Demo)",
+      "temperatureC": 29.6,
+      "humidityPct": 58.0,
+      "timestamp": "2026-11-25T08:10:00.000Z",
+      "isSimulated": true,
+      "source": "SIMULATED_DEMONSTRATION",
+      "note": "Synthetic high-temperature warning test vector"
+    },
+    {
+      "sensorId": "SIM-DEMO-NODE-01",
+      "zone": "Simulated Lab Zone (Demo)",
+      "temperatureC": 34.2,
+      "humidityPct": 82.4,
+      "timestamp": "2026-11-25T08:15:00.000Z",
+      "isSimulated": true,
+      "source": "SIMULATED_DEMONSTRATION",
+      "note": "Synthetic critical excursion test vector"
+    }
+  ]
+}

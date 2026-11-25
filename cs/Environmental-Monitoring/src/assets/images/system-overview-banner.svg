@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 150" width="760" height="150">
+  <rect width="760" height="150" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="380" y="28" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#0f172a">
+    Modular Environmental Monitoring Pipeline (Vendor-Neutral Overview)
+  </text>
+
+  <!-- Step 1 -->
+  <rect x="25" y="48" width="155" height="72" rx="6" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="102" y="76" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="700" fill="#1e3a8a">1. Acquisition</text>
+  <text x="102" y="94" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="10.5" fill="#334155">Sensor (TBD) or</text>
+  <text x="102" y="109" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="10.5" fill="#334155">Simulated Adapter</text>
+
+  <line x1="180" y1="84" x2="208" y2="84" stroke="#64748b" stroke-width="2"/>
+  <polygon points="208,80 216,84 208,88" fill="#64748b"/>
+
+  <!-- Step 2 -->
+  <rect x="218" y="48" width="155" height="72" rx="6" fill="#f0fdf4" stroke="#86efac"/>
+  <text x="295" y="76" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="700" fill="#166534">2. Validation</text>
+  <text x="295" y="94" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="10.5" fill="#334155">Bounds Check &amp;</text>
+  <text x="295" y="109" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="10.5" fill="#334155">°C / °F Normalisation</text>
+
+  <line x1="373" y1="84" x2="401" y2="84" stroke="#64748b" stroke-width="2"/>
+  <polygon points="401,80 409,84 401,88" fill="#64748b"/>
+
+  <!-- Step 3 -->
+  <rect x="411" y="48" width="155" height="72" rx="6" fill="#fefce8" stroke="#fde047"/>
+  <text x="488" y="76" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="700" fill="#854d0e">3. Evaluation</text>
+  <text x="488" y="94" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="10.5" fill="#334155">Configurable Thresholds</text>
+  <text x="488" y="109" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="10.5" fill="#334155">&amp; Pluggable Buffer</text>
+
+  <line x1="566" y1="84" x2="594" y2="84" stroke="#64748b" stroke-width="2"/>
+  <polygon points="594,80 602,84 594,88" fill="#64748b"/>
+
+  <!-- Step 4 -->
+  <rect x="604" y="48" width="131" height="72" rx="6" fill="#f1f5f9" stroke="#94a3b8"/>
+  <text x="669" y="76" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="700" fill="#0f172a">4. Dashboard</text>
+  <text x="669" y="94" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="10.5" fill="#334155">KPIs, SVG Trends</text>
+  <text x="669" y="109" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="10.5" fill="#334155">&amp; Provenance Log</text>
+</svg>

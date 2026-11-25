@@ -1,0 +1,23 @@
+{
+  "name": "environmental-monitoring-cdis",
+  "version": "1.0.0",
+  "description": "Modular Environmental Monitoring Application using Temperature and Humidity Sensors (CDIS - 25CS2206E)",
+  "type": "module",
+  "main": "src/server.js",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --test tests/test-scripts/*.test.js"
+  },
+  "keywords": [
+    "environmental-monitoring",
+    "temperature",
+    "humidity",
+    "cloud-infrastructure",
+    "modular-architecture"
+  ],
+  "license": "UNLICENSED",
+  "private": true
+}
